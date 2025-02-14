@@ -1,0 +1,28 @@
+{
+    "manifest_version": 3,
+    "name": "Tsuza",
+    "version": "1.0",
+    "description": "A witty AI companion that makes remarks based on your browsing.",
+    "permissions": ["activeTab", "scripting", "storage"],
+    "host_permissions": ["http://127.0.0.1:8000/*"],  
+    "background": {
+      "service_worker": "background.js"
+    },
+    "content_scripts": [
+      {
+        "matches": ["http://*/*", "https://*/*"],
+        "js": ["content.js"]
+      }
+    ],
+    "web_accessible_resources": [
+      {
+        "resources": ["imgs/*.png"],
+        "matches": ["<all_urls>"]
+      }
+    ],
+    "action": {
+      "default_popup": "popup.html",
+      "default_icon": "icon.png"
+    }
+  }
+  
